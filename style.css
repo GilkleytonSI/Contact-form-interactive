@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;800;900&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+body{
+	display: flex;
+	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+	background: #1a2228;
+}
+.container{
+	position: relative;
+}
+.container form{
+	background: #fff;
+	padding: 80px 40px;
+	position: relative;
+	transform-origin: top;
+	transform: scale(0);
+	transition: 0.3s 0.2s ease-out;
+}
+.container form::after{
+	position: absolute;
+	content: '';
+	border: 15px solid transparent;
+	border-bottom-color: red;
+	top: -30px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+form h2{
+	font-size: 3em;
+	text-align: center;
+	font-weight: 300;
+	letter-spacing: 2px;
+}
+form input{
+	border: none;
+	outline: none;
+	background: none;
+	font-size: 1.5em;
+	border-bottom: 2px solid #222;
+	margin: 20px;
+	margin-top: 30px;
+	width: 43%;
+}
+.msgbox{
+	width: 93%;
+}
+.btn{
+	border: none;
+	font-size: 1.5em;
+	color: #fff;
+	background: #3cb371;
+	width: 25%;
+	padding: 10px 0;
+	cursor: pointer;
+	transition: 0.2s ease;
+}
+.btn:hover{
+	box-shadow: 0 15px 15px 0 rgb(0, 0, 0, 0.3);
+}
+
+input[type="checkbox"]{
+	-webkit-appearence: none;
+	display: none;
+}
+label i{
+	font-size: 2em;
+	color: #fff;
+	background: #3cb371;
+	position: absolute;
+	z-index: 111;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	cursor: pointer;
+	transition: 0.2s 0.7s ease-in;
+}
+label i:hover{
+	animation: animate 0.1s 5 linear;
+}
+@keyframes animate{
+	from{
+		left: 49.5%;
+	}
+	to{
+		left: 50%;
+	}
+}
+.fa-pencil{
+	padding: 20px;	
+}
+.fa-times{
+	padding: 20px 26px;
+	transform: scale(0);
+}
+
+#check:checked ~ .container form{
+	transform: scale(1);
+	transition: 0.3s 0.5s ease-out;
+}
+#check:checked ~ label i{
+	top: 20%;
+	margin-top: -40px;
+	transform: translate(-50%,-50%);
+	transition-delay: 0.2s;
+}
+#check:checked ~ label .fa-pencil{
+	transform: scale(0);
+}
